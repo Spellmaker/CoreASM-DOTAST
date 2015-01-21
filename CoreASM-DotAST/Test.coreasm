@@ -1,0 +1,21 @@
+CoreASM DerivedTest
+
+use Standard
+
+init Start
+
+derived mySqrt(x) = x * x
+
+derived myMap = {
+        0 -> "Null",
+        1 -> "One",
+        2 -> "Two",
+        3 -> "Three"
+}
+
+rule Start = {
+        print "mySqrt(3): " + mySqrt(3)
+        //print "myMap()(3): " + myMap()(3) // this line does not compile
+        let x = myMap() in
+                print "x(3): " + x(3) // prints undef when compiled
+}
